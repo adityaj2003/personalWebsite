@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: neopixel;
+            src: url("neopixel-regular.otf") format("opentype");
+        }
+        body { margin: 0; overflow: hidden; background-color: #000; }
+        #foregroundName {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            font-family: neopixel;
+            font-size: 24px;
+            color: white;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        #tilesContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
+        }
+        .tile {
+            width: 300px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'neopixel', sans-serif;
+            font-size: 24px;
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+        }
+        .tile:nth-child(1) {
+            background-color: #1e1e1e;
+        }
+        .tile:nth-child(2) {
+            background-color: #fff;
+            color: #000;
+        }
+        .tile:nth-child(3) {
+            background-color: #ffeb3b;
+            color: #000;
+        }
+        .tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="foregroundName">Aditya Jadhav</div>
+    <div id="tilesContainer">
+        <a href="#projects" class="tile">Projects</a>
+        <a href="#resume" class="tile">Resume</a>
+        <a href="#about" class="tile">About</a>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
