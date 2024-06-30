@@ -23,6 +23,7 @@
             color: white;
             z-index: 1000;
             pointer-events: none;
+            text-decoration: none;
         }
         #foreground {
             position: relative;
@@ -175,14 +176,14 @@
     </style>
 </head>
 <body>
-    <div id="foregroundName">Aditya Jadhav</div>
+    <div id="foregroundName" href="index.html">Aditya Jadhav</div>
     <div id="threejs-container"></div>
     <div id="foreground">
         <div id="introSection">
             <div id="introImage"></div>
             <div id="introText">
                 <p>Built a chess playing website using JS, React, Express, NodeJS. The website allows you to play with a computer engine, analyse a game, evaluate a position using the StockFish 14 chess engine, Chess.js and ChessBoard.js OSS projects.</p>
-                <p>Update 1:<br> I added the ability to draw arrows on the chessboard using SVGs. In our project, we utilize dynamic SVG sprites to create interactive arrow icons. This feature is implemented through a combination of HTML, CSS, and JavaScript. </p>
+                <p>Update 1:<br> I added the ability to draw arrows on the chessboard using SVGs. In the project, I utilize dynamic SVG sprites to create interactive arrow icons. This feature is implemented through a combination of HTML, CSS, and JavaScript. </p>
                 <p>Update 2:<br> I added a login feature which used Java Web Tokens and an encryption algorithm to securely send and verify users on the platform. I currently implemented it just for finding out how encryption and authentication works but plan on adding user specific data when I have money to store the data. </p>
                 <p>Update 3: <br> I disabled the ability to fetch puzzles from AWS because of the high cost of AWS RDS DB. There are a 1000 visitors on the platform every month which adds to the inflation of cost.</p><br>
                 <p>My initial idea was to build using PHP as that was what I learned in the Web Dev class at school but I quickly realized that finding resources for PHP is difficult and new age tech stacks are quickly taking over. I learned NodeJS, React as much as I needed and built the website over the summer. I am pretty happy with the result but I would definitely want to understand CDNs, load balancing and other large scale network management stuff from here on. I use an AWS PostGreSql RDBMS to store puzzle data. I now decided to call in 10 puzzle data at once at each ping of the server instead of calling 1 once and contantly pinging.</p>
@@ -206,7 +207,7 @@
         <a href="https://github.com/adityaj2003" class="socialLink" target="_blank">
             <img src="github.png" alt="GitHub">
         </a>
-        <a href="https://twitter.com/adityaj2003" class="socialLink" target="_blank">
+        <a href="https://twitter.com/Adi_not_Aadi" class="socialLink" target="_blank">
             <img src="twitter.png" alt="Twitter">
         </a>
         <a href="https://www.linkedin.com/in/adityarjadhav" class="socialLink" target="_blank">

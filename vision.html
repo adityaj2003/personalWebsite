@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Aditya Jadhav's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: neopixel;
+            src: url("neopixel-regular.otf") format("opentype");
+        }
+        @font-face {
+            font-family: styrene;
+            src: url("styrene.otf") format("opentype");
+        }
+        body { margin: 0; font-family: 'styrene'; overflow-x: hidden; }
+        #foregroundName {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            font-family: neopixel;
+            font-size: 24px;
+            color: white;
+            z-index: 1000;
+            pointer-events: none;
+            text-decoration: none;
+        }
+        #foreground {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #introSection {
+            padding: 100px 20px 20px;
+        }
+        #introImage {
+            margin-top: 10%;
+            width: 200px;
+            height: 200px;
+            background-image: url('Chess_Vision_SS1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+        }
+        #introText {
+            margin-top: 20px;
+            font-size: 24px;
+            max-width: 800px;
+            text-align: left;
+            margin: 0 auto;
+            color: #EEE;
+            font-family: "styrene";
+        }
+        #tilesSection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #tilesContainer {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .tile img {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            transition: transform 0.3s;
+}
+
+        .tile {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "styrene";
+            font-size: 24px;
+            color: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+        .tile:nth-child(1) {
+            background-color: #2901E8;
+        }
+        .tile:nth-child(2) {
+            background-color: #fff480;
+            color: #000;
+        }
+        .tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        #bottomBar {
+            position: fixed;
+            bottom: 2%;
+            left: 50%;
+            width: auto;
+            transform: translateX(-50%);
+            background-color: rgba(51, 51, 51, 0.7);
+            border-radius: 15px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        .socialLink {
+            margin: 0 15px;
+            transition: transform 0.3s;
+        }
+        .socialLink img {
+            width: 30px;
+            height: 30px;
+        }
+        .socialLink:hover {
+            transform: scale(1.2);
+        }
+        #threejs-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        #imageSection {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.imageRow {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.imageItem {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.imageDescription {
+    font-family: 'styrene';
+    font-size: 18px;
+    color: #AAA;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="foregroundName" href="index.html">Aditya Jadhav</div>
+    <div id="threejs-container"></div>
+    <div id="foreground">
+        <div id="introSection">
+            <div id="introImage"></div>
+            <div id="introText">
+                <h1> Chess Vision Program</h1>
+                <h4 style="color: #AAA;"> Get a chess position from a picture of a chess board</h4>
+                <p>Developed an computer vision program capable of recognizing and analyzing chessboard positions from images. The program efficiently extracts a chessboard from a given picture and accurately identifies the positions of the pieces, facilitating the conversion of these positions into a standard chess notation (FEN - Forsyth-Edwards Notation).</p>
+                <p>This program is written in Python, using ML libraries such as TensorFlow for machine learning, OpenCV for image processing. The system is adept at handling various lighting conditions and angles, ensuring reliable performance across diverse scenarios. The primary application of this tool is to digitize chess games from physical boards, offering a cost-effective alternative to expensive digital boards.</p>
+                <p> The step by step process is shown in the images below. I group the lines in the 3rd picture which are closer together into 1 and divide chessboard into 64 individual squares. Then we sent the subsquare into a trained model to predict the chess piece. Then we finally construct fen from it. We get the output like this:- <br>Image: test4.jpg<br> Ground Truth FEN: r1b1kbnr/1pp11ppp/p1p11111/11111111/111NP111/11111111/PPP11PPP/RNB1K11R <br>Inception Model FEN: rnrNkrnr/npp11ppp/pnp11111/11111111/111NP111/11111111/PPP11BPN/rNB1N11N, Accuracy: 84.50704225352112% <br>ResNet Model FEN: rNrNkrnr/Nbp11ppp/pNp11111/1111111N/11NNQ111/1111111N/BPN1NPPP/RNNNNPPR, Accuracy: 73.23943661971832%</p>
+            </div>
+        </div>
+        <div id="imageSection">
+            <div class="imageContainer">
+                <div class="imageRow">
+                    <div class="imageItem" style="background-image: url('Chess_Vision_SS1.jpg');"></div>
+                    <div class="imageItem" style="background-image: url('Chess_Vision_SS2.jpg');"></div>
+                    <div class="imageItem" style="background-image: url('Chess_Vision_SS3.jpg');"></div>
+                </div>
+                <div class="imageDescription">
+                    These images showcase the program’s step by step process of recognizing a chessboard.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottomBar">
+        <a href="https://github.com/adityaj2003" class="socialLink" target="_blank">
+            <img src="github.png" alt="GitHub">
+        </a>
+        <a href="https://twitter.com/Adi_not_Aadi" class="socialLink" target="_blank">
+            <img src="twitter.png" alt="Twitter">
+        </a>
+        <a href="https://www.linkedin.com/in/adityarjadhav" class="socialLink" target="_blank">
+            <img src="linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="mailto:adityaj2003@gmail.com" class="socialLink" target="_blank">
+            <img src="gmail.png" alt="Mail">
+        </a>
+
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const tilesContainer = document.getElementById('tilesContainer');
+            
+            if (scrollY > windowHeight / 2) {
+                tilesContainer.style.transform = 'translateY(0)';
+            } else {
+                tilesContainer.style.transform = 'translateY(100vh)';
+            }
+        });
+    </script>
+</body>
+</html>

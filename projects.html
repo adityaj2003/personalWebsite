@@ -23,6 +23,7 @@
             color: white;
             z-index: 1000;
             pointer-events: none;
+            text-decoration: none;
         }
         #foreground {
             position: relative;
@@ -49,7 +50,7 @@
             max-width: 800px;
             text-align: left;
             margin: 0 auto;
-            color: antiquewhite;
+            color: #EEE;
             font-family: "styrene";
         }
         #projectsSection {
@@ -63,14 +64,14 @@
             margin-bottom: 10px;
         }
         #projectsSection p {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'styrene', sans-serif;
             font-size: 20px;
             margin-bottom: 50px;
             color: #666;
         }
         #tilesContainer {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-gap: 5%;
             padding: 5%;
         }
@@ -163,35 +164,21 @@
     </style>
 </head>
 <body>
-    <div id="foregroundName">Aditya Jadhav</div>
-    <div id="threejs-container"></div>
     <div id="foreground">
         <div id="projectsSection">
             <h2 style="color: #DDD; font-family: neopixel;">Projects: A growing collection of my projects</h2>
             <div id="tilesContainer">
-                <a href="chess.html" class="tile tile1"></a>
-                <a href="project2.html" class="tile tile2"></a>
-                <a href="project3.html" class="tile tile3"></a>
-                <a href="project4.html" class="tile tile4"></a>
-                <a href="project5.html" class="tile tile5"></a>
+                <a href="vision.html" class="tile tile1"></a>
+                <a href="chess.html" class="tile tile2"></a>
+                <a href="youtube.html" class="tile tile3"></a>
+                <a href="wordle.html" class="tile tile4"></a>
                 <a href="project6.html" class="tile tile6"></a>
             </div>
         </div>
     </div>
-    <div id="bottomBar">
-        <a href="https://github.com/adityaj2003" class="socialLink" target="_blank">
-            <img src="github.png" alt="GitHub">
-        </a>
-        <a href="https://twitter.com/adityaj2003" class="socialLink" target="_blank">
-            <img src="twitter.png" alt="Twitter">
-        </a>
-        <a href="https://www.linkedin.com/in/adityarjadhav" class="socialLink" target="_blank">
-            <img src="linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="mailto:adityaj2003@gmail.com" class="socialLink" target="_blank">
-            <img src="gmail.png" alt="Mail">
-        </a>
+    <div id="bottomBarContainer">
+        
     </div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/main.jsx"></script>
 </body>
 </html>

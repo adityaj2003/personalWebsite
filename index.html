@@ -14,15 +14,45 @@
             src: url("styrene.otf") format("opentype");
         }
         body { margin: 0; font-family: 'Roboto', sans-serif; overflow-x: hidden; }
-        #foregroundName {
-            position: fixed;
-            top: 5%;
-            left: 5%;
+        #navigation {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+#foregroundName {
+  font-family: neopixel;
+  font-size: 24px;
+  color: white;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+#navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  font-family: neopixel;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #ff0062; /* Change to your desired hover color */
+}
+        #heading {
+            color: #DDD;
             font-family: neopixel;
-            font-size: 24px;
-            color: white;
-            z-index: 1000;
-            pointer-events: none;
         }
         #foreground {
             position: relative;
@@ -66,6 +96,12 @@
             justify-content: center;
             align-items: center;
         }
+        #tilesContainerProjects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 5%;
+            padding: 5%;
+        }
         .tile img {
             position: absolute;
             bottom: 10px;
@@ -92,6 +128,26 @@
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
             text-decoration: none;
+        }
+        #projectsSection .tile {
+            position: relative;
+            width: 90%;
+            padding-top: 10%;
+            margin-bottom: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'styrene', sans-serif;
+            font-size: 24px;
+            color: #3700B3;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            background-size: cover;
+            background-position: center;
         }
         .tile:nth-child(1) {
             background-color: #2901E8;
@@ -138,55 +194,93 @@
             height: 100%;
             z-index: 0;
         }
+        #projectsSection {
+            padding: 50px 20px;
+            text-align: center;
+            color: #000;
+        }
+        #projectsSection h2 {
+            font-family: 'neopixel', sans-serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        #projectsSection p {
+            font-family: 'styrene', sans-serif;
+            font-size: 20px;
+            margin-bottom: 50px;
+            color: #666;
+        }
+        #projectssection .tile img {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            transition: transform 0.3s;
+        }
+        .tile1 {
+            background-image: url('Chess_Vision_SS1.jpg');
+        }
+        .tile2 {
+            background-image: url('Chess1.png');
+        }
+        .tile3 {
+            background-image: url('YouTubetoNotion.png');
+        }
+        .tile4 {
+            background-image: url('Wordle_SS.jpg');
+        }
+        .tile5 {
+            background-image: url('TDL_SS1.jpg');
+        }
+        .tile6 {
+            background-image: url('path/to/your/image6.jpg');
+        }
+        #imageSection {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.imageRow {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.imageItem {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.imageDescription {
+    font-family: 'styrene';
+    font-size: 18px;
+    color: #AAA;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
     </style>
 </head>
 <body>
-    <div id="foregroundName">Aditya Jadhav</div>
-    <div id="threejs-container"></div>
-    <div id="foreground">
-        <div id="introSection">
-            <div id="introImage"></div>
-            <div id="introText">
-                <p>Hello! Welcome to my personal website. This is a place to share my personality and experiences a little more than what is seen on a 1 page resume.</p>
-                <p>I am Aditya Jadhav, junior at the University of Arizona currently majoring in CS with a minor in SDS (Statistics and Data Science). I have experience with Java and Python. Currently interested and working on ML/AI projects with Python, TensorFlow, Scikit-learn, NumPy. I have experience working with Web development mainly MERN Stack. Have also worked with AWS and Database Systems (MongoDB and PostGreSQL). My Projects can be accessed through the Projects section at the bottom.</p>
-                <p>I currently work as a Software Engineer Intern at Astrocomm Technologies mainly in building GUIs using wxPython and writing Arduino C code to handle ADC data. My future work involves elasticsearch analyzing data using ML techniques. Apart from that I worked under Dr. Chicheng Zhang at the UArizona CS Department on active learning using early stopping gradient descent under Tsybakov Noise. Wrote the theoretical algorithm into code for reducing label complexity in Python. I also previously worked as an Undergraduate Research Assistant at the ToMCAT project. I made a Flask webapp using Python for the project previously and data visualisation dashboard using wxWidgets and C++ for displaying sensor data captured throughout the experiment.</p>
-            </div>
-        </div>
-        <div id="tilesSection">
-            <div id="tilesContainer">
-                <a href="projects.html" class="tile">Projects <img src="terminal.png" alt="Projects Icon"></a>
-                <a href="#resume" class="tile">Resume<img src="resume.png" alt="Resume Icon"></a>
-            </div>
-        </div>
-    </div>
-    <div id="bottomBar">
-        <a href="https://github.com/adityaj2003" class="socialLink" target="_blank">
-            <img src="github.png" alt="GitHub">
-        </a>
-        <a href="https://twitter.com/adityaj2003" class="socialLink" target="_blank">
-            <img src="twitter.png" alt="Twitter">
-        </a>
-        <a href="https://www.linkedin.com/in/adityarjadhav" class="socialLink" target="_blank">
-            <img src="linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="mailto:adityaj2003@gmail.com" class="socialLink" target="_blank">
-            <img src="gmail.png" alt="Mail">
-        </a>
+
+    <div id="root"></div>
+    <div id="bottomBarContainer">
+
 
     </div>
-    <script type="module" src="/main.js"></script>
-    <script>
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const tilesContainer = document.getElementById('tilesContainer');
-            
-            if (scrollY > windowHeight / 2) {
-                tilesContainer.style.transform = 'translateY(0)';
-            } else {
-                tilesContainer.style.transform = 'translateY(100vh)';
-            }
-        });
-    </script>
+    <script type="module" src="/main.jsx"></script>
+
 </body>
 </html>
