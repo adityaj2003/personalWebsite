@@ -31,10 +31,10 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
         #introSection {
-            padding: 100px 20px 20px;
+            padding: 100px 20px;
+            text-align: center;
         }
         #introImage {
-            margin-top: 10%;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -49,22 +49,50 @@
             max-width: 800px;
             text-align: left;
             margin: 0 auto;
-            color: #EEE;
+            color: antiquewhite;
             font-family: "styrene";
         }
-        #tilesSection {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        #projectsSection {
+            padding: 50px 20px;
+            text-align: center;
+            color: #000;
+        }
+        #projectsSection h2 {
+            font-family: 'styrene', sans-serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        #projectsSection p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            margin-bottom: 50px;
+            color: #666;
         }
         #tilesContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5%;
+            padding: 5%;
+        }
+        .tile {
+            position: relative;
+            width: 90%;
+            padding-top: 75%;
+            margin-bottom: 5%;
             display: flex;
-            flex-direction: row;
-            gap: 20px;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            font-family: 'styrene', sans-serif;
+            font-size: 24px;
+            color: #3700B3;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            background-size: cover;
+            background-position: center;
         }
         .tile img {
             position: absolute;
@@ -75,34 +103,28 @@
             margin: 5px;
             transition: transform 0.3s;
         }
-
-        .tile {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: styrene;
-            font-size: 24px;
-            color: white;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
-            text-decoration: none;
-        }
-        .tile:nth-child(1) {
-            background-color: #2901E8;
-        }
-        .tile:nth-child(2) {
-            background-color: #fff480;
-            color: #000;
-        }
         .tile:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        /* Background images for each tile */
+        .tile1 {
+            background-image: url('Chess_Vision_SS1.jpg');
+        }
+        .tile2 {
+            background-image: url('Chess1.png');
+        }
+        .tile3 {
+            background-image: url('YouTubetoNotion.png');
+        }
+        .tile4 {
+            background-image: url('Wordle_SS.jpg');
+        }
+        .tile5 {
+            background-image: url('TDL_SS1.jpg');
+        }
+        .tile6 {
+            background-image: url('path/to/your/image6.jpg');
         }
         #bottomBar {
             position: fixed;
@@ -144,18 +166,15 @@
     <div id="foregroundName">Aditya Jadhav</div>
     <div id="threejs-container"></div>
     <div id="foreground">
-        <div id="introSection">
-            <div id="introImage"></div>
-            <div id="introText">
-                <p>Hello! Welcome to my personal website. This is a place to share my personality and experiences a little more than what is seen on a 1 page resume.</p>
-                <p>I am Aditya Jadhav, junior at the University of Arizona currently majoring in CS with a minor in SDS (Statistics and Data Science). I have experience with Java and Python. Currently interested and working on ML/AI projects with Python, TensorFlow, Scikit-learn, NumPy. I have experience working with Web development mainly MERN Stack. Have also worked with AWS and Database Systems (MongoDB and PostGreSQL). My Projects can be accessed through the Projects section at the bottom.</p>
-                <p>I currently work as a Software Engineer Intern at Astrocomm Technologies mainly in building GUIs using wxPython and writing Arduino C code to handle ADC data. My future work involves elasticsearch analyzing data using ML techniques. Apart from that I worked under Dr. Chicheng Zhang at the UArizona CS Department on active learning using early stopping gradient descent under Tsybakov Noise. Wrote the theoretical algorithm into code for reducing label complexity in Python. I also previously worked as an Undergraduate Research Assistant at the ToMCAT project. I made a Flask webapp using Python for the project previously and data visualisation dashboard using wxWidgets and C++ for displaying sensor data captured throughout the experiment.</p>
-            </div>
-        </div>
-        <div id="tilesSection">
+        <div id="projectsSection">
+            <h2 style="color: #DDD; font-family: neopixel;">Projects: A growing collection of my projects</h2>
             <div id="tilesContainer">
-                <a href="projects.html" class="tile">Projects <img src="terminal.png" alt="Projects Icon"></a>
-                <a href="#resume" class="tile">Resume<img src="resume.png" alt="Resume Icon"></a>
+                <a href="chess.html" class="tile tile1"></a>
+                <a href="project2.html" class="tile tile2"></a>
+                <a href="project3.html" class="tile tile3"></a>
+                <a href="project4.html" class="tile tile4"></a>
+                <a href="project5.html" class="tile tile5"></a>
+                <a href="project6.html" class="tile tile6"></a>
             </div>
         </div>
     </div>
@@ -172,21 +191,7 @@
         <a href="mailto:adityaj2003@gmail.com" class="socialLink" target="_blank">
             <img src="gmail.png" alt="Mail">
         </a>
-
     </div>
     <script type="module" src="/main.js"></script>
-    <script>
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const tilesContainer = document.getElementById('tilesContainer');
-            
-            if (scrollY > windowHeight / 2) {
-                tilesContainer.style.transform = 'translateY(0)';
-            } else {
-                tilesContainer.style.transform = 'translateY(100vh)';
-            }
-        });
-    </script>
 </body>
 </html>

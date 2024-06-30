@@ -37,8 +37,7 @@
             margin-top: 10%;
             width: 200px;
             height: 200px;
-            border-radius: 50%;
-            background-image: url('personal.jpeg');
+            background-image: url('ChessLogo.svg');
             background-size: cover;
             background-position: center;
             margin: 0 auto;
@@ -74,7 +73,7 @@
             height: 50px;
             margin: 5px;
             transition: transform 0.3s;
-        }
+}
 
         .tile {
             position: relative;
@@ -83,7 +82,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: styrene;
+            font-family: "styrene";
             font-size: 24px;
             color: white;
             border-radius: 50px;
@@ -138,6 +137,41 @@
             height: 100%;
             z-index: 0;
         }
+        #imageSection {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.imageRow {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.imageItem {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.imageDescription {
+    font-family: 'styrene';
+    font-size: 18px;
+    color: #AAA;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -147,15 +181,24 @@
         <div id="introSection">
             <div id="introImage"></div>
             <div id="introText">
-                <p>Hello! Welcome to my personal website. This is a place to share my personality and experiences a little more than what is seen on a 1 page resume.</p>
-                <p>I am Aditya Jadhav, junior at the University of Arizona currently majoring in CS with a minor in SDS (Statistics and Data Science). I have experience with Java and Python. Currently interested and working on ML/AI projects with Python, TensorFlow, Scikit-learn, NumPy. I have experience working with Web development mainly MERN Stack. Have also worked with AWS and Database Systems (MongoDB and PostGreSQL). My Projects can be accessed through the Projects section at the bottom.</p>
-                <p>I currently work as a Software Engineer Intern at Astrocomm Technologies mainly in building GUIs using wxPython and writing Arduino C code to handle ADC data. My future work involves elasticsearch analyzing data using ML techniques. Apart from that I worked under Dr. Chicheng Zhang at the UArizona CS Department on active learning using early stopping gradient descent under Tsybakov Noise. Wrote the theoretical algorithm into code for reducing label complexity in Python. I also previously worked as an Undergraduate Research Assistant at the ToMCAT project. I made a Flask webapp using Python for the project previously and data visualisation dashboard using wxWidgets and C++ for displaying sensor data captured throughout the experiment.</p>
+                <p>Built a chess playing website using JS, React, Express, NodeJS. The website allows you to play with a computer engine, analyse a game, evaluate a position using the StockFish 14 chess engine, Chess.js and ChessBoard.js OSS projects.</p>
+                <p>Update 1:<br> I added the ability to draw arrows on the chessboard using SVGs. In our project, we utilize dynamic SVG sprites to create interactive arrow icons. This feature is implemented through a combination of HTML, CSS, and JavaScript. </p>
+                <p>Update 2:<br> I added a login feature which used Java Web Tokens and an encryption algorithm to securely send and verify users on the platform. I currently implemented it just for finding out how encryption and authentication works but plan on adding user specific data when I have money to store the data. </p>
+                <p>Update 3: <br> I disabled the ability to fetch puzzles from AWS because of the high cost of AWS RDS DB. There are a 1000 visitors on the platform every month which adds to the inflation of cost.</p><br>
+                <p>My initial idea was to build using PHP as that was what I learned in the Web Dev class at school but I quickly realized that finding resources for PHP is difficult and new age tech stacks are quickly taking over. I learned NodeJS, React as much as I needed and built the website over the summer. I am pretty happy with the result but I would definitely want to understand CDNs, load balancing and other large scale network management stuff from here on. I use an AWS PostGreSql RDBMS to store puzzle data. I now decided to call in 10 puzzle data at once at each ping of the server instead of calling 1 once and contantly pinging.</p>
+                <p>This project also resulted in me contributing to lichess.org on their github. Looking at the scale of their github repo makes mine look like a drop in the ocean but I gained how to manage deployment ready code from looking over there code to make the changes (and the procedures they follow before pushing to prod).</p>
             </div>
         </div>
-        <div id="tilesSection">
-            <div id="tilesContainer">
-                <a href="projects.html" class="tile">Projects <img src="terminal.png" alt="Projects Icon"></a>
-                <a href="#resume" class="tile">Resume<img src="resume.png" alt="Resume Icon"></a>
+        <div id="imageSection">
+            <div class="imageContainer">
+                <div class="imageRow">
+                    <div class="imageItem" style="background-image: url('Chess1.png');"></div>
+                    <div class="imageItem" style="background-image: url('Chess2.png');"></div>
+                    <div class="imageItem" style="background-image: url('Chess3.png');"></div>
+                </div>
+                <div class="imageDescription">
+                    This image shows the features of the game. Engine evaluating best move. The depth of evaluation is set to 20. Also seen are the toggles for computer play. We also see multiplayer screen in the middle and the successful puzzle screen on the right.
+                </div>
             </div>
         </div>
     </div>
