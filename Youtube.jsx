@@ -5,7 +5,7 @@ const Projects = () => {
   return (
    <div id="foreground">
         <div id="introSection">
-            <div id="introImage" style={{backgroundImage:"url(./YoutubeToNotion.png)", width:"60%", borderRadius:"0px"}}></div>
+            <div id="introImage" style={{backgroundImage:"url(Notion.png)", width:"60%", borderRadius:"0px"}}></div>
             <div id="introText">
                 <h1> YouTube Transcript to Notion Exporter Extension</h1>
                 <h4 style={{color: "#AAA"}}> Get a summary of the video you are watching right into your Notion Workspace</h4>
