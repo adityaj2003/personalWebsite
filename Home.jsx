@@ -15,7 +15,7 @@ const Home = () => {
         <div id="tilesSection">
             <div id="tilesContainer">
                 <a href="/projects" class="tile">Projects <img src="terminal.png" alt="Projects Icon"></img></a>
-                <a href="Aditya_Resume.p" class="tile">Resume<img src="resume.png" alt="Resume Icon"></img></a>
+                <a href="Aditya_Resume.pdf" class="tile">Resume<img src="resume.png" alt="Resume Icon"></img></a>
             </div>
         </div>
     </div>

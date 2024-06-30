@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from './node_modules/three/src/Three.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
@@ -123,7 +123,8 @@ const App = () => {
         <div id="navLinks">
           <Link to="/" className="navLink">Home</Link>
           <Link to="/projects" className="navLink">Projects</Link>
-          <Link to="/resume" className="navLink">Resume</Link>
+          <a href="/Aditya_Resume.pdf" className="navLink" target="_blank" rel="noopener noreferrer">Resume</a>
+
         </div>
       </div>
       <div id="threejs-container"></div>
