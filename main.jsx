@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
@@ -8,12 +8,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import BottomBar from './BottomBar';
 import Home from './Home';
+import Projects from './Projects';
 import Chess from './Chess';
 import Vision from './Vision';
-import Wordle from './Wordle'; 
+import Wordle from './Wordle';
 import Youtube from './Youtube';
-
-import Projects from './Projects';
 
 const App = () => {
   useEffect(() => {
