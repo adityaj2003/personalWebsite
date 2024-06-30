@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Aditya Jadhav's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: neopixel;
+            src: url("/assets/neopixel-regular.10788d09.otf") format("opentype");
+        }
+        @font-face {
+            font-family: styrene;
+            src: url("/assets/styrene.898bf1d5.otf") format("opentype");
+        }
+        body { margin: 0; font-family: 'Roboto', sans-serif; overflow-x: hidden; }
+        #navigation {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+#foregroundName {
+  font-family: neopixel;
+  font-size: 24px;
+  color: white;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+#navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  font-family: neopixel;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #ff0062; /* Change to your desired hover color */
+}
+        #heading {
+            color: #DDD;
+            font-family: neopixel;
+        }
+        #foreground {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #introSection {
+            padding: 100px 20px 20px;
+        }
+        #introImage {
+            margin-top: 10%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url('/assets/personal.73d3f3ec.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+        }
+        #introText {
+            margin-top: 20px;
+            font-size: 24px;
+            max-width: 800px;
+            text-align: left;
+            margin: 0 auto;
+            color: #EEE;
+            font-family: "styrene";
+        }
+        #tilesSection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #tilesContainer {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        #tilesContainerProjects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 5%;
+            padding: 5%;
+        }
+        .tile img {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            transition: transform 0.3s;
+        }
+
+        .tile {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: styrene;
+            font-size: 24px;
+            color: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+        #projectsSection .tile {
+            position: relative;
+            width: 90%;
+            padding-top: 10%;
+            margin-bottom: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'styrene', sans-serif;
+            font-size: 24px;
+            color: #3700B3;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            background-size: cover;
+            background-position: center;
+        }
+        .tile:nth-child(1) {
+            background-color: #2901E8;
+        }
+        .tile:nth-child(2) {
+            background-color: #fff480;
+            color: #000;
+        }
+        .tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        #bottomBar {
+            position: fixed;
+            bottom: 2%;
+            left: 50%;
+            width: auto;
+            transform: translateX(-50%);
+            background-color: rgba(51, 51, 51, 0.7);
+            border-radius: 15px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        .socialLink {
+            margin: 0 15px;
+            transition: transform 0.3s;
+        }
+        .socialLink img {
+            width: 30px;
+            height: 30px;
+        }
+        .socialLink:hover {
+            transform: scale(1.2);
+        }
+        #threejs-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        #projectsSection {
+            padding: 50px 20px;
+            text-align: center;
+            color: #000;
+        }
+        #projectsSection h2 {
+            font-family: 'neopixel', sans-serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        #projectsSection p {
+            font-family: 'styrene', sans-serif;
+            font-size: 20px;
+            margin-bottom: 50px;
+            color: #666;
+        }
+        #projectssection .tile img {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            transition: transform 0.3s;
+        }
+        .tile1 {
+            background-image: url('/assets/Chess_Vision_SS1.320e518b.jpg');
+        }
+        .tile2 {
+            background-image: url('/assets/Chess1.5b4cb620.png');
+        }
+        .tile3 {
+            background-image: url('/assets/YouTubetoNotion.970b5db4.png');
+        }
+        .tile4 {
+            background-image: url('/assets/Wordle_SS.02c36df8.jpg');
+        }
+        .tile5 {
+            background-image: url('/assets/TDL_SS1.e52a1a70.jpg');
+        }
+        .tile6 {
+            background-image: url('path/to/your/image6.jpg');
+        }
+        #imageSection {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.imageRow {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.imageItem {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.imageDescription {
+    font-family: 'styrene';
+    font-size: 18px;
+    color: #AAA;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+    </style>
+  <script type="module" crossorigin src="/assets/index.81d861ca.js"></script>
+  <link rel="stylesheet" href="/assets/index.ae7e5390.css">
+</head>
+<body>
+
+    <div id="root"></div>
+    <div id="bottomBarContainer">
+
+
+    </div>
+    
+
+</body>
+</html>
