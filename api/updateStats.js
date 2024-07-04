@@ -1,12 +1,21 @@
 // api/updateStats.js
 
+const generateTimestamps = (numPoints) => {
+  const timestamps = [];
+  const now = new Date();
+  for (let i = 0; i < numPoints; i++) {
+    const timestamp = new Date(now - i * 5 * 60 * 1000);
+    timestamps.unshift(timestamp);
+  }
+  return timestamps;
+};
 // Temporary storage for incoming data
 let graphData = {
-  labels: [],
-  leftClicks: [],
-  rightClicks: [],
-  keyPresses: [],
-  mouseMovement: [],
+  labels: generateTimestamps(288),
+  leftClicks: new Array(288).fill(0),
+  rightClicks: new Array(288).fill(0),
+  keyPresses: new Array(288).fill(0),
+  mouseMovement: new Array(288).fill(0) ,
 };
 
 export default function handler(req, res) {
