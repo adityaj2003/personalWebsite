@@ -26,7 +26,7 @@ export default function handler(req, res) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
-    const now = new Date();
+    const now = generateTimestamps(1)[0];
 
     // Update graphData by removing the first element and adding the new data point
     graphData.labels.push(now);
