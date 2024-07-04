@@ -111,7 +111,7 @@ const Home = () => {
     try {
       const response = await fetch('/api/updateStats');
       const data = await response.json();
-      
+      console.log("Received Data"+data);
       setGraphData({
         labels: data.labels,
         leftClicks: data.leftClicks,

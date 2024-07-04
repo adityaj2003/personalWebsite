@@ -33,7 +33,7 @@ export default function handler(req, res) {
       graphData.keyPresses.shift();
       graphData.mouseMovement.shift();
     }
-
+    console.log(graphData);
     res.status(200).json({ message: 'Data updated successfully' });
   } else if (req.method === 'GET') {
     res.status(200).json(graphData);
