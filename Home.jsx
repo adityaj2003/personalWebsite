@@ -102,7 +102,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchStats();
-    const intervalId = setInterval(fetchStats, 3000);
+    const intervalId = setInterval(fetchStats, 300000);
     return () => clearInterval(intervalId);
   }, []);
   
