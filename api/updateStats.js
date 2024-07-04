@@ -21,7 +21,7 @@ let graphData = {
 export default function handler(req, res) {
   if (req.method === 'POST') {
     const { distance, numRight, numLeft, keyPresses } = req.body;
-
+    console.log(distance, numRight, numLeft, keyPresses);
     if (distance === undefined || numRight === undefined || numLeft === undefined || keyPresses === undefined) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
