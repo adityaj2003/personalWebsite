@@ -28,7 +28,7 @@
 #foregroundName {
   font-family: neopixel;
   font-size: 30px;
-  color: #DAD;
+  color: rgb(64, 224,125);
   pointer-events: none;
   text-decoration: none;
 }
@@ -268,6 +268,41 @@
     margin: 0 auto;
     padding: 10px;
 }
+
+/* src/components/StatsDisplay.css */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0,0,0,0);
+  color: #00ff99;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);;
+}
+
+.stats-item {
+  text-align: center;
+}
+
+.stats-item h2 {
+  font-family: 'styrene';
+  font-size: 24px;
+}
+
+.stats-item p {
+  font-family: 'styrene';
+  font-size: 32px;
+  margin: 10px 0;
+}
+.chart-section {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(0,0,0,0.7);
+  border-radius: 10px;
+}
+
     </style>
 </head>
 <body>
