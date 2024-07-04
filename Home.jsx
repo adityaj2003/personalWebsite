@@ -157,7 +157,7 @@ const Home = () => {
         </div>
         <div className="stats-item">
           <h2>Mouse Movement</h2>
-          <p>{stats.distance.toFixed(2)} feet</p>
+          <p>{Math.trunc(stats.distance)} feet</p>
         </div>
       </div>
       <div className="chart-section">
