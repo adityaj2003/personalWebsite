@@ -102,7 +102,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchStats();
-    const intervalId = setInterval(fetchStats, 300000);
+    const intervalId = setInterval(fetchStats, 30000);
     return () => clearInterval(intervalId);
   }, []);
   
@@ -119,7 +119,7 @@ const Home = () => {
         keyPresses: data.keyPresses,
         mouseMovement: data.mouseMovement,
       });
-      setStats({distance: data.mouseMovement[data.mouseMovement.length - 1], numRight: data.rightClicks[data.rightClicks.length - 1], numLeft: data.leftClicks[data.leftClicks.length - 1], keyPresses: data.keyPresses[data.keyPresses.length - 1]});
+      setStats({distance:data.mouseMovement.reduce((a, b) => a + b, 0), numRight:data.rightClicks.reduce((a, b) => a + b, 0), numLeft:data.leftClicks.reduce((a, b) => a + b, 0), keyPresses:data.keyPresses.reduce((a, b) => a + b, 0)});
     } catch (error) {
       console.error('Error fetching stats:', error);
     }
