@@ -42,12 +42,15 @@ const initializeGraphData = async () => {
         }
         resolve();
       })
-      .on('error', (err) => reject(err));
+      .on('error', (err) => {
+        console.error('Error reading CSV file:', err);
+        reject(err);
+      });
   });
 };
 
 // Initialize graphData on startup
-initializeGraphData();
+initializeGraphData().catch(err => console.error('Initialization error:', err));
 
 const writeCsvData = async (data) => {
   return new Promise((resolve, reject) => {
@@ -56,7 +59,10 @@ const writeCsvData = async (data) => {
       .write(data, { headers: true })
       .pipe(ws)
       .on('finish', resolve)
-      .on('error', reject);
+      .on('error', (err) => {
+        console.error('Error writing CSV file:', err);
+        reject(err);
+      });
   });
 };
 
