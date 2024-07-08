@@ -111,7 +111,7 @@ const Home = () => {
     try {
       const response = await fetch('/api/updateStats'); // Ensure this is the correct API endpoint
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.message}`);
       }
       const data = await response.json();
       console.log("Received Data", data);
