@@ -109,7 +109,10 @@ const Home = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch('/api/updateStats');
+      const response = await fetch('/api/updateStats'); // Ensure this is the correct API endpoint
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       console.log("Received Data", data);
       setGraphData({
@@ -129,6 +132,7 @@ const Home = () => {
       console.error('Error fetching stats:', error);
     }
   };
+  
   
   
 

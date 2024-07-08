@@ -104,7 +104,6 @@ export default async function handler(req, res) {
   } else if (req.method === 'GET') {
     try {
       await initializeGraphData(); // Ensure graphData is updated before sending it
-      console.log("Graph Data: ", graphData);
       res.status(200).json(graphData);
     } catch (error) {
       res.status(500).json({ message: 'Failed to read CSV data' });
