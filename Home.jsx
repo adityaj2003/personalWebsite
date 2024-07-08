@@ -111,7 +111,7 @@ const Home = () => {
     try {
       const response = await fetch('/api/updateStats');
       const data = await response.json();
-      console.log("Received Data"+data);
+      console.log("Received Data", data);
       setGraphData({
         labels: data.labels,
         leftClicks: data.leftClicks,
@@ -119,11 +119,17 @@ const Home = () => {
         keyPresses: data.keyPresses,
         mouseMovement: data.mouseMovement,
       });
-      setStats({distance:data.mouseMovement.reduce((a, b) => a + b, 0), numRight:data.rightClicks.reduce((a, b) => a + b, 0), numLeft:data.leftClicks.reduce((a, b) => a + b, 0), keyPresses:data.keyPresses.reduce((a, b) => a + b, 0)});
+      setStats({
+        distance: data.mouseMovement.reduce((a, b) => a + b, 0),
+        numRight: data.rightClicks.reduce((a, b) => a + b, 0),
+        numLeft: data.leftClicks.reduce((a, b) => a + b, 0),
+        keyPresses: data.keyPresses.reduce((a, b) => a + b, 0)
+      });
     } catch (error) {
       console.error('Error fetching stats:', error);
     }
   };
+  
   
 
   return (
