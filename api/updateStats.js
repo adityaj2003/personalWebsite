@@ -3,7 +3,7 @@ const path = require('path');
 const csvParser = require('csv-parser');
 const fastCsv = require('fast-csv');
 
-const csvFilePath = path.resolve('.', 'stats.csv');
+const csvFilePath = path.resolve(__dirname, 'stats.csv');
 
 const generateTimestamps = (numPoints) => {
   const timestamps = [];
