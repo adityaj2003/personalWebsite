@@ -13,6 +13,7 @@ import Chess from './Chess';
 import Vision from './Vision';
 import Wordle from './Wordle';
 import Youtube from './Youtube';
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
   useEffect(() => {
