@@ -102,7 +102,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchStats();
-    const intervalId = setInterval(fetchStats, 30000);
+    const intervalId = setInterval(fetchStats, 3000);
     return () => clearInterval(intervalId);
   }, []);
   
@@ -142,6 +142,7 @@ const Home = () => {
           <a href="Aditya_Resume.pdf" className="tile">Resume <img src="resume.png" alt="Resume Icon" /></a>
         </div>
       </div>
+      <div className="stats-heading"> <p>my activity</p></div>
       <div className="stats-container">
         <div className="stats-item">
           <h2>Left Clicks</h2>
