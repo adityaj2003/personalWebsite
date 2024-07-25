@@ -1,13 +1,37 @@
-import { MongoClient } from 'mongodb';
-console.log(process.env.MONGODB_PWD);
+import { MongoClient, ServerApiVersion } from 'mongodb';
+
 const uri = `mongodb+srv://adityaj2003:${process.env.MONGODB_PWD}@cluster0.dcg6idk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const client = new MongoClient(uri);
+let client;
+let clientPromise;
+
+if (!global._mongoClientPromise) {
+  client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: ServerApiVersion.v1,
+    tls: true,
+    tlsAllowInvalidCertificates: true, // This allows invalid certificates. Use with caution.
+    tlsAllowInvalidHostnames: true // This allows invalid hostnames. Use with caution.
+  });
+
+  global._mongoClientPromise = client.connect().then((client) => {
+    console.log("MongoDB connected successfully");
+    return client;
+  }).catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });
+}
+clientPromise = global._mongoClientPromise;
 
 const fetchGraphData = async () => {
   const now = new Date();
   const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
   try {
+    const client = await clientPromise;
+    if (!client) {
+      throw new Error("Failed to connect to MongoDB");
+    }
     const database = client.db("PersonalWebsite");
     const collection = database.collection("metrics");
 
@@ -55,6 +79,9 @@ export default async function handler(req, res) {
 
     try {
       const client = await clientPromise;
+      if (!client) {
+        throw new Error("Failed to connect to MongoDB");
+      }
       const database = client.db("PersonalWebsite");
       const collection = database.collection("metrics");
       await collection.insertOne(stats);
