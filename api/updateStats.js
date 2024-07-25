@@ -10,9 +10,8 @@ const fetchGraphData = async () => {
   const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
   try {
-    await client.connect();
-    const database = await client.db("PersonalWebsite");
-    const collection = await database.collection("metrics");
+    const database = client.db("PersonalWebsite");
+    const collection = database.collection("metrics");
 
     const results = await collection.find({ timestamp: { $gte: twentyFourHoursAgo } }).sort({ timestamp: 1 }).toArray();
 
