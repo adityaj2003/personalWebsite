@@ -1,8 +1,6 @@
 import { MongoClient } from 'mongodb';
-
+console.log(process.env.MONGODB_PWD);
 const uri = `mongodb+srv://adityaj2003:${process.env.MONGODB_PWD}@cluster0.dcg6idk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-let clientPromise;
-
 const client = new MongoClient(uri);
 
 const fetchGraphData = async () => {
