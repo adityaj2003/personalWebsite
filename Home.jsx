@@ -74,17 +74,10 @@ const StatsChart = ({ graphData }) => {
 
   return <Line data={chartData} options={options} />;
 };
-const Home = () => {
-  const generateTimestamps = (numPoints) => {
-    const timestamps = [];
-    const now = new Date();
-    for (let i = 0; i < numPoints; i++) {
-      const timestamp = new Date(now - i * 5 * 60 * 1000);
-      timestamps.unshift(timestamp);
-    }
-    return timestamps;
-  };
 
+
+
+const Home = () => {
   const [stats, setStats] = useState({
     distance: 0,
     numRight: 0,
@@ -93,11 +86,11 @@ const Home = () => {
   });
 
   const [graphData, setGraphData] = useState({
-    labels: generateTimestamps(288),
-    leftClicks: new Array(288).fill(0),
-    rightClicks: new Array(288).fill(0),
-    keyPresses: new Array(288).fill(0),
-    mouseMovement: new Array(288).fill(0),
+    labels: [],
+    leftClicks: [],
+    rightClicks: [],
+    keyPresses: [],
+    mouseMovement: [],
   });
 
   useEffect(() => {
@@ -131,16 +124,15 @@ const Home = () => {
       console.error('Error fetching stats:', error);
     }
   };
-  
 
   return (
     <div id="foreground">
       <div id="introSection">
         <div id="introImage"></div>
         <div id="introText">
-        <p>Hello! Welcome to my personal website. This is a place to share my personality and experiences a little more than what is seen on a 1 page resume.</p>
-                <p>I am Aditya Jadhav, junior at the University of Arizona currently majoring in CS with a minor in SDS (Statistics and Data Science). I have experience with Java and Python. Currently interested and working on ML/AI projects with Python, TensorFlow, Scikit-learn, NumPy. I have experience working with Web development mainly MERN Stack. Have also worked with AWS and Database Systems (MongoDB and PostGreSQL). My Projects can be accessed through the Projects section at the bottom.</p>
-                <p>I currently work as a Software Engineer Intern at Astrocomm Technologies mainly in building GUIs using wxPython and writing Arduino C code to handle ADC data. My future work involves elasticsearch analyzing data using ML techniques. Apart from that I worked under Dr. Chicheng Zhang at the UArizona CS Department on active learning using early stopping gradient descent under Tsybakov Noise. Wrote the theoretical algorithm into code for reducing label complexity in Python. I also previously worked as an Undergraduate Research Assistant at the ToMCAT project. I made a Flask webapp using Python for the project previously and data visualisation dashboard using wxWidgets and C++ for displaying sensor data captured throughout the experiment.</p>
+          <p>Hello! Welcome to my personal website. This is a place to share my personality and experiences a little more than what is seen on a 1 page resume.</p>
+          <p>I am Aditya Jadhav, junior at the University of Arizona currently majoring in CS with a minor in SDS (Statistics and Data Science). I have experience with Java and Python. Currently interested and working on ML/AI projects with Python, TensorFlow, Scikit-learn, NumPy. I have experience working with Web development mainly MERN Stack. Have also worked with AWS and Database Systems (MongoDB and PostGreSQL). My Projects can be accessed through the Projects section at the bottom.</p>
+          <p>I currently work as a Software Engineer Intern at Astrocomm Technologies mainly in building GUIs using wxPython and writing Arduino C code to handle ADC data. My future work involves elasticsearch analyzing data using ML techniques. Apart from that I worked under Dr. Chicheng Zhang at the UArizona CS Department on active learning using early stopping gradient descent under Tsybakov Noise. Wrote the theoretical algorithm into code for reducing label complexity in Python. I also previously worked as an Undergraduate Research Assistant at the ToMCAT project. I made a Flask webapp using Python for the project previously and data visualisation dashboard using wxWidgets and C++ for displaying sensor data captured throughout the experiment.</p>
         </div>
       </div>
       <div id="tilesSection">
