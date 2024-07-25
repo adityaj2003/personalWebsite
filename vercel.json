@@ -4,7 +4,7 @@
   ],
   "functions": {
     "api/updateStats.js": {
-      "maxDuration": 3000
+      "maxDuration": 300
     }
   }
 }
