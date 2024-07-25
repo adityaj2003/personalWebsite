@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const uri = `mongodb+srv://adityaj2003:${process.env.MONGODB_PWD}@cluster0.dcg6idk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri);
 
 const fetchGraphData = async () => {
   const now = new Date();
@@ -17,7 +17,6 @@ const fetchGraphData = async () => {
     
     const results = await collection.find({ timestamp: { $gte: twentyFourHoursAgo } }).sort({ timestamp: 1 }).toArray();
 
-    // Prepare the data for the graph
     const graphData = {
       labels: [],
       leftClicks: [],
