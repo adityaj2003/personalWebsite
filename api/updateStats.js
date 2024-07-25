@@ -1,14 +1,9 @@
 import { MongoClient } from 'mongodb';
 
 const uri = `mongodb+srv://adityaj2003:${process.env.MONGODB_PWD}@cluster0.dcg6idk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-let client;
 let clientPromise;
 
-if (!global._mongoClientPromise) {
-  client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
+const client = new MongoClient(uri);
 
 const fetchGraphData = async () => {
   const now = new Date();
