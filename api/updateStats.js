@@ -8,10 +8,7 @@ if (!global._mongoClientPromise) {
   client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverApi: ServerApiVersion.v1,
-    tls: true,
-    tlsAllowInvalidCertificates: true, // This allows invalid certificates. Use with caution.
-    tlsAllowInvalidHostnames: true // This allows invalid hostnames. Use with caution.
+    serverApi: ServerApiVersion.v1
   });
 
   global._mongoClientPromise = client.connect().then((client) => {
