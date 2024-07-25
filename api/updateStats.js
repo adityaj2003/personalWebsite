@@ -10,7 +10,6 @@ const fetchGraphData = async () => {
   const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
   try {
-    const client = await clientPromise;
     await client.connect();
     const database = await client.db("PersonalWebsite");
     const collection = await database.collection("metrics");
