@@ -9,8 +9,10 @@
   "dependencies": {
     "chart.js": "^4.4.3",
     "chartjs-adapter-date-fns": "^3.0.0",
+    "dotenv": "^16.4.5",
     "fast-csv": "^5.0.1",
     "fs": "^0.0.1-security",
+    "mongodb": "^6.8.0",
     "parser-csv": "^0.2.0",
     "path": "^0.12.7",
     "react": "^17.0.2",
