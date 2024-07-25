@@ -1,20 +1,24 @@
 import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const uri = `mongodb+srv://adityaj2003:${process.env.MONGODB_PWD}@cluster0.dcg6idk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const client = new MongoClient(uri);
+let client;
+let clientPromise;
+
+if (!global._mongoClientPromise) {
+  client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  global._mongoClientPromise = client.connect();
+}
+clientPromise = global._mongoClientPromise;
 
 const fetchGraphData = async () => {
   const now = new Date();
   const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-  
+
   try {
-    await client.connect();
+    const client = await clientPromise;
     const database = client.db("PersonalWebsite");
     const collection = database.collection("metrics");
-    
+
     const results = await collection.find({ timestamp: { $gte: twentyFourHoursAgo } }).sort({ timestamp: 1 }).toArray();
 
     const graphData = {
@@ -38,8 +42,6 @@ const fetchGraphData = async () => {
   } catch (err) {
     console.error('Error fetching data:', err);
     return null;
-  } finally {
-    await client.close();
   }
 };
 
@@ -60,7 +62,7 @@ export default async function handler(req, res) {
     };
 
     try {
-      await client.connect();
+      const client = await clientPromise;
       const database = client.db("PersonalWebsite");
       const collection = database.collection("metrics");
       await collection.insertOne(stats);
@@ -68,8 +70,6 @@ export default async function handler(req, res) {
     } catch (err) {
       console.error('Error inserting data:', err);
       res.status(500).json({ message: 'Internal server error' });
-    } finally {
-      await client.close();
     }
   } else if (req.method === 'GET') {
     const graphData = await fetchGraphData();
