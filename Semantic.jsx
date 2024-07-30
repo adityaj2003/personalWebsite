@@ -15,11 +15,7 @@ const Projects = () => {
             </div>
         </div>
         <div id="imageSection">
-            <div class="imageContainer">
-                <div class="imageRow">
-                    <div class="imageItem" style={{backgroundImage: "url('Semantic_Search.jpg')"}}></div>
-                </div>
-            </div>
+            <img src="Semantic_Search.jpg" alt="Semantic Search Screenshot" style={{width: "80%"}}></img>
         </div>
     </div> 
   );
