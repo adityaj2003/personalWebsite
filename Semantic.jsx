@@ -4,7 +4,6 @@ const Projects = () => {
   return (
    <div id="foreground">
         <div id="introSection">
-            <div id="introImage" style={{backgroundImage:"url(Semantic.jpg)", borderRadius:"0"}}></div>
             <div id="introText">
                 <h1> Better Preview</h1>
                 <h4 style={{color: "#AAA"}}> Preview with the ability to search semantically</h4>
@@ -13,6 +12,13 @@ const Projects = () => {
 <p>The step-by-step process involves extracting text from the PDF, splitting the text into sentences, tokenizing each sentence using a BERT-based tokenizer, and generating embeddings with the MiniLM-V6 model.</p>
 <p>The program initially compared query to stored pdf embedding using linear search but that of course would be inefficient and slow for real world use. Now what I do is create 8 buckets using K-means clustering and first compare distances b/w the centroids of the buckets 
     to  distances of the pdf embeddings in the bucket to the query. This increases indexing time initially but significantly reduces query search time (which seems like an acceptable tradeoff). I avoided using Pinecone because I wanted to myself look up solutions for high dimension vector storage solutions. Next plan would be to implement HNSW from scratch.</p>
+            </div>
+        </div>
+        <div id="imageSection">
+            <div class="imageContainer">
+                <div class="imageRow">
+                    <div class="imageItem" style={{backgroundImage: "url('Semantic_Search.jpg')"}}></div>
+                </div>
             </div>
         </div>
     </div> 
