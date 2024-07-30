@@ -137,6 +137,7 @@ const App = () => {
         <Route path="/vision" element={<Vision />} />
         <Route path="/wordle" element={<Wordle />} />  
         <Route path="/youtube" element={<Youtube />} />
+        <Route path="/semantic" element={<Semantic />} />
       </Routes>
     </Router>
   );

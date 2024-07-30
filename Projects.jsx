@@ -9,6 +9,7 @@ const Projects = () => {
         <div id="tilesContainerProjects">
           <a href="vision" className="tile tile1"></a>
           <a href="chess" className="tile tile2"></a>
+          <a href ="semantic" className="tile tile5"></a>
           <a href="youtube" className="tile tile3"></a>
           <a href="wordle" className="tile tile4"></a>
         </div>
