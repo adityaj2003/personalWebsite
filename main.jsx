@@ -126,7 +126,7 @@ const App = () => {
           <Link to="/" className="navLink">Home</Link>
           <Link to="/projects" className="navLink">Projects</Link>
           <a href="/Aditya_Resume.pdf" className="navLink" target="_blank" rel="noopener noreferrer">Resume</a>
-
+          <Analytics />
         </div>
       </div>
       <div id="threejs-container"></div>
